@@ -51,48 +51,41 @@ class _HomePageState extends State<HomePage> {
                     height: 20.0,
                   ),
                   onPressed: () {
-                    
-                 var  menuDialog =
-                 Align(
-                   alignment: Alignment(0, 1),
-                   child:  Dialog(
-                       shape: RoundedRectangleBorder(
-                           borderRadius:
-                           BorderRadius.circular(12.0)), //this right here
-                       child: Stack(
-
-
-                         children: [
-                           Container(
-
-
-                             child: ListView.builder(
-                               physics: ScrollPhysics(),
-                               shrinkWrap: true,
-                               itemCount: _menuitems.length,
-                               itemBuilder: (context, position) => Container(
-                                 margin: EdgeInsets.only(left: 10, right: 10),
-                                 decoration: BoxDecoration(
-                                     borderRadius:
-                                     BorderRadius.all(Radius.circular(8))),
-                                 child: ListTile(
-                                   title: Text(_menuitems[position]),
-                                 ),
-                               ),
-                             ),
-                           ),
-                           Positioned(
-                             top:-100.0,
-                             left:0.0,
-                             right: 0.0,
-                             bottom:0.0,
-                             child: Text(''),
-                           )
-                         ],
-                       ),
-                     ),
-                 );
-
+                    var menuDialog = Align(
+                      alignment: Alignment(0, 1),
+                      child: Dialog(
+                        shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.circular(12.0)), //this right here
+                        child: Stack(
+                          children: [
+                            Container(
+                              child: ListView.builder(
+                                physics: ScrollPhysics(),
+                                shrinkWrap: true,
+                                itemCount: _menuitems.length,
+                                itemBuilder: (context, position) => Container(
+                                  margin: EdgeInsets.only(left: 10, right: 10),
+                                  decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(8))),
+                                  child: ListTile(
+                                    title: Text(_menuitems[position]),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              top: -100.0,
+                              left: 0.0,
+                              right: 0.0,
+                              bottom: 0.0,
+                              child: Text(''),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
 
                     showDialog(
                         context: context,
@@ -104,14 +97,7 @@ class _HomePageState extends State<HomePage> {
             bottom: TabBar(
               labelColor: Colors.white,
               unselectedLabelColor: Colors.white54,
-              // indicatorSize: TabBarIndicatorSize.label,
-              //  indicator: BoxDecoration(
-              //      borderRadius: BorderRadius.only(
-              //          topLeft: Radius.circular(10),
-              //          topRight: Radius.circular(10)),
-              //      color: Colors.white),
               indicatorColor: Colors.white,
-
               tabs: [
                 Tab(
                   child: IconButton(
