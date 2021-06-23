@@ -10,7 +10,7 @@ class Chats extends StatefulWidget {
 }
 
 class _ChatsState extends State<Chats> {
-  TextEditingController _textController = TextEditingController();
+
   SearchBloc searchbloc;
   ChatBloc chatbloc;
   void initState() {

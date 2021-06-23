@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
 
 import 'file:///C:/Users/Appeonix/AndroidStudioProjects/whatsme/lib/presentation/screens/homeScreens/calls.dart';
 import 'package:whatsme/presentation/screens/camera/camera.dart';
@@ -12,6 +13,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+  final List<String> _menuitems = [
+    "NewGroup",
+    "New broadcast",
+    "WhatsApp Web",
+    "Starred messages",
+    "Payments",
+    "Settings"
+  ];
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -40,7 +50,56 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.white,
                     height: 20.0,
                   ),
-                  onPressed: null),
+                  onPressed: () {
+                    
+                 var  menuDialog =
+                 Align(
+                   alignment: Alignment(0, 1),
+                   child:  Dialog(
+                       shape: RoundedRectangleBorder(
+                           borderRadius:
+                           BorderRadius.circular(12.0)), //this right here
+                       child: Stack(
+
+
+                         children: [
+                           Container(
+
+
+                             child: ListView.builder(
+                               physics: ScrollPhysics(),
+                               shrinkWrap: true,
+                               itemCount: _menuitems.length,
+                               itemBuilder: (context, position) => Container(
+                                 margin: EdgeInsets.only(left: 10, right: 10),
+                                 decoration: BoxDecoration(
+                                     borderRadius:
+                                     BorderRadius.all(Radius.circular(8))),
+                                 child: ListTile(
+                                   title: Text(_menuitems[position]),
+                                 ),
+                               ),
+                             ),
+                           ),
+                           Positioned(
+                             top:-100.0,
+                             left:0.0,
+                             right: 0.0,
+                             bottom:0.0,
+                             child: Text(''),
+                           )
+                         ],
+                       ),
+                     ),
+                 );
+
+
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return menuDialog;
+                        });
+                  }),
             ],
             bottom: TabBar(
               labelColor: Colors.white,
